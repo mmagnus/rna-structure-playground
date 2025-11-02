@@ -23,6 +23,10 @@ rna-tools: a toolbox to analyze structures and simulations of RNA
 
 ### rna-tools.online
 
+    rna-tools.online – a Swiss army knife for RNA 3D modeling workflows  
+    M. Magnus  
+    Nucleic Acid Research, 10.1093/nar/gkac372, May 2022  
+
 https://rna-tools.online
 
 rna-tools.online is an online gateway to some of the rna-tools functionalities
