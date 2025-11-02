@@ -8,9 +8,7 @@ This PyMOL run demonstrates that human and yeast tRNAs maintain nearly identical
 
 -------------------------------------------------------------------------------
 
-
-![](img
-.png)
+![](img.png)
 
 	PyMOL>fetch 6y2l_B4
 	TITLE     Structure of human ribosome in POST state
