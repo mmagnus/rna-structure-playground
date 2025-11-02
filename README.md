@@ -9,6 +9,9 @@ rna-tutorials is a hands-on repository with shell scripts and command examples d
 
 - see all tRNA structures - https://rfam.org/family/RF00005#tabview=tab6 
 
+## Tools
+
+- Emacs for editing files in the PDB forma https://github.com/mmagnus/emacs-pdb-mode
 
 ## Examplary inputs
 
