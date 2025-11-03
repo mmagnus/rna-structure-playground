@@ -16,6 +16,10 @@ rna-tutorials is a hands-on repository with shell scripts and command examples d
        width="500">
 </p>
 
+## RNA Edit
+
+  #TODO add extract with rna-tools
+  
 ## Tips
 
 - see all tRNA structures - https://rfam.org/family/RF00005#tabview=tab6 
