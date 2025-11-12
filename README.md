@@ -66,6 +66,9 @@ Emacs for editing files in the PDB format https://github.com/mmagnus/emacs-pdb-m
     >1ehz (tRNA)
     GCGGAUUUAGCUCAGUUGGGAGAGCGCCAGACUGAAGAUCUGGAGGUCCUGUGUUCGAUCCACAGAAUUCGCACCA
     (((((((..((((.....[..)))).((((.........)))).....(((((..]....)))))))))))).... 
+    GCGGAUUUAGCUCAGUuGGGAGAGCGCCAGACUGAAGAUCUGGAGGuCCUGUGUUCGAUCCACAGAAUUCGCACCA #fasr from_stockholm
+    (((((((..((((........)))).(((((.......))))).....(((((.......)))))))))))).... #fasr from_stockholm
+
     # ss from https://rnafrabase.cs.put.poznan.pl/?act=pdbdetails&id=1EHZ
 
 https://www.rcsb.org/structure/1EHZ
