@@ -16,6 +16,7 @@ rna-tutorials is a hands-on repository with shell scripts and command examples d
      - using frabase (https://rnafrabase.cs.put.poznan.pl)
 1. Annotate secondary strucure for `tetraloop_steamOf1bp.pdb` (with rna-tools.online) #rnatools
 1. Detect covariation from an RNA alignments and annotate RNA Secondary Structures (RNAView)[^2] with R-scape (`secondary-structure-covariation-and-annotation-with-rscape`)[^3]
+1. Structural Module of MiniRoseTTA https://github.com/mmagnus/StructuralModuleOfMiniRoseTTA
  
 ## RNA Edit
 
