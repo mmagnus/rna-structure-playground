@@ -6,6 +6,8 @@ This PyMOL run demonstrates that human and yeast tRNAs maintain nearly identical
 
  * However, you can also see that PyMOL fails to properly align sequences containing modified nucleotides, so many residues remain unmatched or stripped during the alignment.
 
+DO IT CORRECTLY ;-) https://github.com/mmagnus/rna-tools/tree/master/rna_tools/tools/rna_calc_evo_rmsd 
+
 -------------------------------------------------------------------------------
 
 ![](img.png)
