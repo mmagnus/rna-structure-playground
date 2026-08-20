@@ -22,11 +22,13 @@ normally uses for covariation.
 
 ## Command
 
-	$ R-scape --pdbchain A --pdb 1EHZ.pdb 1ehz_A.sto
+	$ R-scape --rna --outprep --pdbchain A --pdb 1EHZ.pdb 1ehz_A.sto
 
 `--pdb 1EHZ.pdb --pdbchain A` tells R-scape to fetch chain A's 3D contacts from the structure
 (via RNAView) and map them onto the sequence in `1ehz_A.sto`, instead of only trusting whatever
-`SS_cons` line an alignment provides.
+`SS_cons` line an alignment provides. `--rna` just pins the alphabet. `--outprep` is what asks for
+the `.prep` dump described below — without it R-scape still does the same contact analysis, it just
+doesn't write that particular file out.
 
 ## Why is there a `.hmm` and a `.cm` here? I didn't run cmbuild/hmmbuild
 
@@ -73,6 +75,28 @@ Everything else is named `1ehz_A_1.1EHZ.A.*` (R-scape's `<alignment>_<n>.<pdbid>
   secondary-structure diagram rendered from the annotated Stockholm file.
 - `1ehz_A_1.1EHZ.A.PDB.sto` — the input alignment with R-scape's derived `SS_cons` line(s) added,
   e.g. the cloverleaf plus the D-loop/T-loop pseudoknot contact on a separate `SS_cons_1` line.
+- `1ehz_A_1.1EHZ.A.prep` — the same `.cmap` contact info, but dumped as one row per `(i, j)` pair
+  over the *whole* alignment (all 2775 pairs for a 76-column alignment, not just the contacts
+  RNAView actually found), in a fixed-width numeric format meant for feeding into other
+  tools/scripts rather than reading by eye. Its header documents the columns:
+
+		# i j E-value power bptype_onehot
+		#
+		# 1 < i < j < alignment length=76
+		# E-value [0,10.0), provided by R-scape.
+		# power[0,1], provided by R-scape
+		# BPTYPE_onehot: [W H S X] [W H S X] [c t] [STACKED CONTACT]
+		#MASK:0000000000000000000000000000000000000000000000000000000000000000000000000001
+
+  So each row is `i  j  E-value  power` followed by a 12-slot one-hot encoding: 4 slots for `i`'s
+  pairing edge (`W`atson-Crick/`H`oogsteen/`S`ugar/`X` none), 4 more for `j`'s edge, 2 for cis/trans,
+  and 2 flags for "stacked" vs "contact-but-not-a-real-pair". Since there's no alignment (`N=1`),
+  `E-value` is always `-1` and `power` always `0` — those columns only mean something with real
+  covariation data. Compare row `1 72` (`1 0 0 0 1 0 0 0 1 0 0 0` → W/W, cis, no stacked/contact
+  flag) against the `.cmap` line `1 72 | 1 72 | WWc` — same pair, same call, just re-encoded as
+  one-hot for downstream ML/scripting use. Row `1 2` (`... 0 0 0 1` → CONTACT flag set) likewise
+  matches the `.cmap` line `1 2 | 1 2 | CONTACT`. The trailing `#MASK` line flags alignment columns
+  R-scape excludes from analysis (here just the last column, position 76).
 
 ## Takeaway
 
