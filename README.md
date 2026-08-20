@@ -12,6 +12,7 @@ rna-tutorials is a hands-on repository with shell scripts and command examples d
 ## RNA Alignments
 
 1. Detect covariation from an RNA alignments and annotate RNA Secondary Structures (RNAView)[^2] with R-scape (`secondary-structure-covariation-and-annotation-with-rscape`)[^3]
+1. Annotate a single tRNA structure (1EHZ) with 3D contacts via R-scape's RNAView/PDB mode, no covariation (`r-scape`)[^2][^3]
 
 ## RNA Secondary Structure
 
